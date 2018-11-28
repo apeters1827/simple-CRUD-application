@@ -1,0 +1,11 @@
+extends /layouts/application.pug
+
+block content
+  .text-center
+    h1 Sign Up
+  +formFor({ url: urlFor('users#create'), method: 'post' })
+    +input('email', 'Email address', { autofocus: true, required: true })
+    +input('password', 'Password', { type: 'password', required: true })
+    +input('firstName', 'First name (optional)')
+    +input('lastName', 'Last name (optional)')
+    button.btn.btn-outline-primary.btn-lg.btn-block(type='submit') Sign Up

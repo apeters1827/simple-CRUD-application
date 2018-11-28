@@ -1,0 +1,35 @@
+include /mixins/forms.pug
+include /mixins/flash.pug
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='/assets/style.css')
+    title Simple Users Managment
+    block scripts
+      script(src='/assets/main.js')
+  body.bg-light(style='min-height: 100vh')
+    nav.navbar.navbar-expand-md.navbar-dark.sticky-top(style='background-color: #216a96')
+      a.navbar-brand(href=urlFor('root')) Simple Users Managment
+      button.navbar-toggler(data-toggle='collapse', data-target='#navbarCollapse')
+        span.navbar-toggler-icon
+      #navbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href=urlFor('users#index')) Users
+        ul.navbar-nav
+          if isSignedIn()
+            li.nav-item
+              a.nav-link(href=urlFor('users#show', userId)) My Profile
+            li.nav-item
+              a.nav-link(href=urlFor('session#destroy') data-method='delete' rel='nofollow') Sign Out
+          else
+            li.nav-item
+              a.nav-link(href=urlFor('session#new')) Sign In
+            li.nav-item
+              a.nav-link(href=urlFor('users#new')) Sign Up
+    main.container.mt-4
+      +flashMessage()
+      block content

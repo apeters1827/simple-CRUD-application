@@ -7,6 +7,7 @@ module.exports = {
   entry: ['./src/index.js'],
   output: {
     path: path.join(__dirname, 'public', 'assets'),
+    filename: 'main.js',
     publicPath: '/assets/',
   },
   module: {

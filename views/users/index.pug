@@ -1,0 +1,19 @@
+extends /layouts/application.pug
+
+block content
+  table.table.table-stripped.table-hover
+    caption List of Users
+    thead
+      tr
+        th(scope='col') #
+        th(scope='col') Full Name
+        th(scope='col') Email
+    tbody
+      - let counter = 0
+      each user in users
+        - counter += 1
+        tr
+          th(scope='row')= counter
+          td
+            a(href=urlFor('users#show', user.id))= user.fullName
+          td= user.email

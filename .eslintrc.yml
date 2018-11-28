@@ -11,16 +11,12 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
 rules:
-  indent:
-    - error
-    - spaces
   no-console: 0
   linebreak-style:
     - error
     - unix
   quotes:
     - error
-    - single
   semi:
     - error
     - always

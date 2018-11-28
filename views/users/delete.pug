@@ -1,0 +1,10 @@
+extends /layouts/card.pug
+
+block header
+  h1= user.fullName
+block cardContent
+  .text-center
+    h4 Are you sure?
+
+    a.btn.btn-outline-danger.btn-lg.m-2(href=urlFor('profile#destroy') data-method='delete' rel='nofollow') Yes, delete my account
+    a.btn.btn-outline-primary.btn-lg.m-2(href=urlFor('users#show', userId)) No

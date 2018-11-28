@@ -1,0 +1,9 @@
+extends /layouts/application.pug
+
+block content
+  .text-center
+    h1 Sign In
+  +formFor({ url: urlFor('session#create'), method: 'post' })
+    +input('email', 'Email address', { autofocus: true, required: true })
+    +input('password', 'Password', { type: 'password', required: true })
+    button.btn.btn-outline-primary.btn-lg.btn-block(type='submit') Sign In
