@@ -1,0 +1,9 @@
+/node_modules/
+*.log
+dist
+*.sqlite
+public/assets
+.bash_history
+.env
+.vscode
+coverage

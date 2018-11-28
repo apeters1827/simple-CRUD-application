@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+- node
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+jobs:
+  include:
+  - stage: lint and tests
+    script:
+      - make lint
+      - make coverage-test
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+
+notifications:
+  email: false
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: WtpPePv+iQMT7/r/XA7JJDMwjP8Gps3GDlFWyqra6/9xZBN1mC1ZrDpj23VIgXu7fOnECIlCsVcqZ3iYbMFpIFwYNfEsz0RbvW1TqZBBTI8KKa6zXKqZ6FbyzeEvosKLdOAPfH+PTf9uzIOCgoOWyUnMqIBIWij2sHJ7FT8+NwTMFBQCpY4g0SE1DndXqEQNY+EnDCNrc/JZSGEajG8xug/Rq/H3W/ulF/qrbI2dmeGEJE2Cf6HTs3MltsWmL8po/8e5zL9VyhFPN4u5hE2fUxihh/yX6GoLEB2dWWMqGdDCc3sHfyl5rMg/gLKkRbPaPdypZ4+GzEXpyUXmcOKUFA6S239XIy+rjHq9GdfMZlF5YDALR7rbhsGhkcU9H9SGnGgqpySiRFwvadw8F/CZ1qe241MYELUKIrwcM9zzSTvLKgPAu/kR64fITiU9ETwNQcOnOSgV8XB0dNkN7eGlle64nPHgFsMQs0XEpRggbn4gGsU8htW+y/0zEnAuaI74PHX3XAuUOeeK+we6HoHEQySoUNuGviwhURD+zqX+Bitl7pgSy+wKp7032+PGIuXQxUZBuCqCbpAFZztZfM/+tvvrenflSnZfJXHhoy2PIQSbuOadnbgHtGivr4hN5CudXU9g8NZZCkGRMBVNT4lESukgdOKkjJmEC2RvHV+daK0=
+  app: task-mgr-g31
+  run: npm run initDb
