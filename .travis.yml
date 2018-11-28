@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=b1c36f4f84e17ab721ebb7493e1b7ca4023b699f5468b86cb57d06869acbfdc4
 language: node_js
 node_js:
 - node
@@ -5,18 +8,13 @@ before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
-jobs:
-  include:
-  - stage: lint and tests
-    script:
-      - make lint
-      - make coverage-test
+script:
+- make lint
+- make coverage-test
 after_script:
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-
 notifications:
   email: false
-
 deploy:
   provider: heroku
   api_key:
