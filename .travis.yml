@@ -19,5 +19,5 @@ deploy:
   provider: heroku
   api_key:
     secure: AfDbSnlj90O2Lz+rzQaIwOkIJ7yNqSRxVl0QQ7TSwDZSdUz8SN+cXeyN8safuXStNOn9NvfJCpwpxSqImIZQ48sTfeLsKEnIdh9sAw/egdQ9WpU/kWh1cVGgGDc1PVqO2wraDSrx7wm6WKhNWNtdL6+EQW7bDkD3RZiGnzDXPmVy9h9dYUHvt5kvpk4OpJI2eucvKdT2+Vacd/z8Mm+eWCeLk+O/0wpDmroY/VugTv6vEdchdpdM+l9HjytiNzmrkcrrieOc5uIgbHqFoIa5BLJwXJDmMt4o0+7Fg2fvZCpNtSJDOkNmwDvBf0wbyPbebaW/VJVuqGv4jX/67TUpGbAFpE/TknEzb6ES1lt3q7rJd84KHgAp/XVjtysJ0k4OSi763snJZhzzlbExS+Ik3GCzR+ufdwzzm3kbYzxDPgwjr5iWa4zYYbpxjUYt5u5BQ8azCUziygFS5v12m/M4/MLiXKmS4dq1BIFB4y4iVkleLtiuWA3P/wdY7jDHSIKSdZvrsc7kUA0s/uIme//mGiakzWsddvMjaIHeQefbFlbAdygacLfYwhZfU/QINNWzsc7qDQfp7Lnaja0wT0s0xRCFhxXpie711uWwYJ4cb91zwL/XNb27qP9rMTGPoCR7M58VBR4Xi1Hca+Osp+ljB47QdnTZbmjQmFpou9EVZAg=
-  app: simple-crud-application
+  app: mighty-woodland-68609
   run: npm run initDb
