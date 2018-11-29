@@ -108,7 +108,7 @@ describe('user', () => {
       })
       .expect(200);
 
-    const { count } = await db.User.findAndCount();
+    const { count } = await db.User.findAndCountAll();
     expect(count).toBe(0);
   });
 
@@ -126,7 +126,7 @@ describe('user', () => {
       })
       .expect(302);
 
-    const { count } = await db.User.findAndCount();
+    const { count } = await db.User.findAndCountAll();
     expect(count).toBe(1);
   });
 
@@ -162,7 +162,7 @@ describe('user', () => {
       })
       .expect(200);
 
-    const user = await db.User.findById(1);
+    const user = await db.User.findByPk(1);
     expect(user.email).not.toBe('test@mail.com');
   });
 
@@ -177,7 +177,7 @@ describe('user', () => {
       })
       .expect(302);
 
-    const user = await db.User.findById(1);
+    const user = await db.User.findByPk(1);
     expect(user.fullName).toBe('New Name');
   });
 
@@ -244,7 +244,7 @@ describe('user', () => {
       .delete('/account/profile')
       .expect('location', '/');
 
-    const user = await db.User.findById(1);
+    const user = await db.User.findByPk(1);
     expect(user).toBeNull();
   });
 });
