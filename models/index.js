@@ -19,12 +19,6 @@ const models = {
   User: sequelize.import('./User.js'),
 };
 
-Object.values(models).forEach((model) => {
-  if (model.associate) {
-    model.associate(models);
-  }
-});
-
 models.sequelize = sequelize;
 models.Sequelize = Sequelize;
 
